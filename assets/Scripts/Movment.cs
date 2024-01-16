@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Movement : MonoBehaviour
 {
     public float walkSpeed = 1f;
-    public float sprintSpeed = 8f;
-    public float maxVelocityChange = 5f;
+    public float sprintSpeed = 5f;
+    public float maxVelocityChange = 7f;
 
     [Space]
     public float jumpHeight = 5f;
 
     private Vector2 input;
     private Rigidbody rb;
-
     private bool sprinting; 
     private bool jumping;
     private bool grounded = false;
@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
     {
         input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input.Normalize();
+        sprinting = Input.GetButton("Spring");
 
         jumping = Input.GetButton("Jump");
     }

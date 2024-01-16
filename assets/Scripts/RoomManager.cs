@@ -37,11 +37,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     
     void PhotonInit() {
         GameObject _player = PhotonNetwork.Instantiate (player.name , SpawnPoint.position , Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       _player.GetComponent<PlayerSetup>().IsLocalPlayer();
     }
 }
